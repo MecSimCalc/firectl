@@ -33,6 +33,8 @@ cd ./release-${FIRECRACKER_VERSION}-${ARCH}
 sudo cp firecracker-${FIRECRACKER_VERSION}-${ARCH} /usr/local/bin/firecracker
 sudo cp jailer-${FIRECRACKER_VERSION}-${ARCH} /usr/local/bin/jailer
 
+cd ~
+
 # Give read/write access to KVM:
 sudo apt-get install acl
 sudo setfacl -m u:${USER}:rw /dev/kvm

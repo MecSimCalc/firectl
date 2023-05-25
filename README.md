@@ -1,5 +1,4 @@
-firectl
-===
+# firectl
 
 [![Build status](https://badge.buildkite.com/92fe02b4bd9564be0f7ea21d1ee782f6a6fe55cbd5465e3480.svg?branch=master)](https://buildkite.com/firecracker-microvm/firectl)
 
@@ -8,8 +7,15 @@ Firecracker MicroVMs via the command line. This lets you run a fully
 functional Firecracker MicroVM, including console access, read/write
 access to filesystems, and network connectivity.
 
-Building
----
+## Installation
+
+```bash
+wget https://raw.githubusercontent.com/MecSimCalc/firectl/main/install.sh # Download install script
+chmod +x install.sh # Make executable
+sudo ./install.sh # Run install script
+```
+
+## Building
 
 The default Makefile rule executes `go build` and relies on the Go toolchain
 installed on your computer.
@@ -17,11 +23,10 @@ _We use [go modules](https://github.com/golang/go/wiki/Modules), and building
 requires Go 1.14 or newer._
 
 If you do not have a new-enough Go toolchain installed, you can use `make
-build-in-docker`.  This rule creates a temporary Docker container which builds
+build-in-docker`. This rule creates a temporary Docker container which builds
 and copies the binary to your current directory.
 
-Usage
----
+## Usage
 
 You'll need to have a
 [firecracker](https://github.com/firecracker-microvm/firecracker) build, as well
@@ -59,8 +64,7 @@ Help Options:
   -h, --help                    Show this help message
 ```
 
-Example
----
+## Example
 
 ```
 firectl \
@@ -73,8 +77,7 @@ firectl \
   --metadata='{"foo":"bar"}'
 ```
 
-Getting Started on AWS
----
+## Getting Started on AWS
 
 - Create an `m5d.metal` instance using Amazon Linux 2
 - Get firectl binary:
@@ -115,8 +118,8 @@ Getting Started on AWS
     --root-drive=hello-rootfs.ext4
   ```
 
-Testing
----
+## Testing
+
 By default the tests require the firectl binary to be built and a kernel image
 to be present. The integration tests look for the binary and kernel image in
 the root directory. By default it will look for vmlinux kernel image. This can
@@ -124,8 +127,7 @@ be overwritten by setting the environment variable `KERNELIMAGE` to the desired
 path. To disable these tests simply set the environment variable
 `SKIP_INTEG_TEST=1`.
 
-Questions?
----
+## Questions?
 
 Please use
 [GitHub issues](https://github.com/firecracker-microvm/firectl/issues)
